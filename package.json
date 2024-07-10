@@ -1,0 +1,18 @@
+{
+  "name": "angelguard-app-backand",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "angelguard-app-backand": "bin/test.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "install": "^0.13.0"
+  }
+}
