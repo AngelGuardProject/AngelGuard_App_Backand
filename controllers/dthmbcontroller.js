@@ -1,5 +1,5 @@
 const axios = require('axios');
-const User = require('../models/quser'); // 쿼리 모델
+const User = require('../models/user'); // 쿼리 모델
 
 exports.getTempData = async (req,res) => {
     try {

@@ -3,8 +3,7 @@ const jwt = require('jsonwebtoken');
 const path = require('path');
 const User = require('../models/user');
 const secretKey = process.env.SECRET_KEY;
-const cookieParser = require('cookie-parser');
-app.use(cookieParser());
+
 
 
 const blacklistPath = path.join(__dirname, '../blacklist.json');
@@ -65,7 +64,7 @@ exports.Clogin = async (req, res) => {
                 const user = result[0];
                 const match = await bcrypt.compare(req.body.pw, user.user_pw);
                 if (match) {
-                    const token = jwt.sign({ user_login_id: user.user_login_id, username: user.username }, secretKey, { expiresIn: '1h' });
+                    const token = jwt.sign({ user_login_id: user.user_login_id }, secretKey, { expiresIn: '1h' });
                     res.json({ result: true, message: '로그인 성공', token: token, data: { user_nickname: user.user_nickname, user_login_id: user.user_login_id } });
                 } else {
                     res.status(406).json({ result: false, message: '비밀번호가 일치하지 않습니다.' });
